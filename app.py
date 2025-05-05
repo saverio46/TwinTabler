@@ -14,6 +14,8 @@ logger = logging.getLogger(__name__)
 # Initialize Flask app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key_for_dev")
+# Disable template caching during development
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Define allowed file extensions
 ALLOWED_EXTENSIONS = {'xlsx'}
