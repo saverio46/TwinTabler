@@ -1,0 +1,56 @@
+/* Additional custom styles */
+.card {
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+.card-footer {
+    border-radius: 0 0 0.5rem 0.5rem !important;
+}
+
+.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* File input styling */
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Progress bar animation */
+@keyframes progress-animation {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.animated-progress {
+    animation: progress-animation 2s infinite;
+}
+
+/* Table styling for the example */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .input-group > .form-control {
+        width: 100%;
+        border-radius: 0.25rem !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    .input-group > .btn {
+        width: 100%;
+        border-radius: 0.25rem !important;
+    }
+}

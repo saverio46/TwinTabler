@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h4 mb-0"><i class="fas fa-upload me-2"></i>Upload Excel File</h2>
+            </div>
+            <div class="card-body">
+                <div class="p-4 bg-light rounded mb-4">
+                    <h3 class="h5 mb-3">How It Works:</h3>
+                    <ol class="mb-0">
+                        <li>Upload an Excel file (.xlsx) containing customer data.</li>
+                        <li>The first column should contain numeric IDs to determine odd/even rows.</li>
+                        <li>The application will process your file:</li>
+                        <ul>
+                            <li>Odd-ID rows will be placed starting from Column A.</li>
+                            <li>Even-ID rows will be placed starting from Column G.</li>
+                            <li>Headers for even-ID data will have "_2" appended.</li>
+                        </ul>
+                        <li>The processed file will be available for download automatically.</li>
+                    </ol>
+                </div>
+
+                <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data" id="upload-form">
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <input type="file" class="form-control" id="file" name="file" accept=".xlsx" required>
+                            <button class="btn btn-primary" type="submit" id="submit-btn">
+                                <i class="fas fa-cog me-2"></i>Process File
+                            </button>
+                        </div>
+                        <div class="form-text">Only .xlsx files are accepted</div>
+                    </div>
+                </form>
+
+                <div class="progress d-none" id="progress-container">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                
+                <div class="alert alert-info d-none" id="processing-message">
+                    <div class="d-flex align-items-center">
+                        <div class="spinner-border spinner-border-sm me-2" role="status">
+                            <span class="visually-hidden">Processing...</span>
+                        </div>
+                        <div>Processing your Excel file. This may take a moment...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="alert alert-secondary mb-0">
+                    <i class="fas fa-info-circle me-2"></i> The application separates customer data with odd and even IDs into different column groups for easier analysis.
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow mt-4">
+            <div class="card-header bg-secondary text-white">
+                <h2 class="h4 mb-0"><i class="fas fa-table me-2"></i>Example Layout</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="3" class="text-center bg-light">Odd-ID Columns (Starting from A)</th>
+                                <th colspan="3" class="text-center bg-light">Even-ID Columns (Starting from G)</th>
+                            </tr>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>ID_2</th>
+                                <th>Name_2</th>
+                                <th>Email_2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>john@example.com</td>
+                                <td>2</td>
+                                <td>Jane</td>
+                                <td>jane@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Bob</td>
+                                <td>bob@example.com</td>
+                                <td>4</td>
+                                <td>Alice</td>
+                                <td>alice@example.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
