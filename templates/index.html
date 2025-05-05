@@ -8,20 +8,6 @@
                 <h2 class="h4 mb-0"><i class="fas fa-upload me-2"></i>Upload Your Excel File</h2>
             </div>
             <div class="card-body">
-                <div class="p-4 bg-light rounded mb-4">
-                    <h3 class="h5 mb-3">How It Works:</h3>
-                    <ol class="mb-0">
-                        <li>Upload an Excel file (.xlsx) containing customer data.</li>
-                        <li>The first column should contain numeric IDs to determine odd/even rows.</li>
-                        <li>The application will process your file:</li>
-                        <ul>
-                            <li>Odd-ID rows will be placed starting from Column A.</li>
-                            <li>Even-ID rows will be placed starting from Column G.</li>
-                            <li>Headers for even-ID data will have "_2" appended.</li>
-                        </ul>
-                        <li>The processed file will be available for download automatically.</li>
-                    </ol>
-                </div>
 
                 <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data" id="upload-form">
                     <div class="mb-4">
@@ -64,8 +50,8 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th colspan="3" class="text-center bg-light">Odd-ID Columns (Starting from A)</th>
-                                <th colspan="3" class="text-center bg-light">Even-ID Columns (Starting from G)</th>
+                                <th colspan="3" class="text-center bg-dark">Odd-ID Columns (Starting from A)</th>
+                                <th colspan="3" class="text-center bg-dark">Even-ID Columns (Starting from G)</th>
                             </tr>
                             <tr>
                                 <th>ID</th>
