@@ -1,0 +1,7 @@
+email-validator
+flask
+flask-sqlalchemy
+gunicorn (for serving the application)
+openpyxl (for Excel file handling)
+pandas (for data processing)
+psycopg2-binary (PostgreSQL database adapter)
