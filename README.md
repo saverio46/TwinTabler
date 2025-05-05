@@ -51,4 +51,5 @@ TwinTabler is a web application that processes Excel files by splitting rows wit
 
 The application separates rows with odd and even IDs:
 - Odd-ID rows are placed starting from Column A with original headers
-- Even-ID rows are placed starting from Column G with "_2" appended to headers
+- Even-ID rows are placed starting from Column G with "_2" appended to headers# TwinTabler
+# TwinTabler
